@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpace - Mood Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">🧠 MindSpace</div>
+        <div class="nav-links">
+            <button class="nav-btn active" id="btn-tracker">Tracker</button>
+            <button class="nav-btn" id="btn-info">How to Use</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="tracker-section" class="app-section">
+            <div class="card logging-card">
+                <h2>How are you feeling today?</h2>
+                <div class="emoji-container">
+                    <button class="emoji-btn" data-mood="Excellent" data-score="5">🤩<span class="emoji-label">Excellent</span></button>
+                    <button class="emoji-btn" data-mood="Good" data-score="4">🙂<span class="emoji-label">Good</span></button>
+                    <button class="emoji-btn" data-mood="Neutral" data-score="3">😐<span class="emoji-label">Neutral</span></button>
+                    <button class="emoji-btn" data-mood="Down" data-score="2">🙁<span class="emoji-label">Down</span></button>
+                    <button class="emoji-btn" data-mood="Awful" data-score="1">😭<span class="emoji-label">Awful</span></button>
+                </div>
+                
+                <div class="note-container">
+                    <textarea id="mood-note" placeholder="What's making you feel this way? (Optional)..." rows="3"></textarea>
+                    <button id="save-mood-btn">Log Mood</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card history-card">
+                    <h3>Mood History</h3>
+                    <div id="history-list" class="history-list">
+                        <p class="empty-msg">No logs yet. Start tracking your day!</p>
+                    </div>
+                </div>
+
+                <div class="card analytics-card">
+                    <h3>Analytics Summary</h3>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-num" id="stat-total">0</span>
+                            <span class="stat-label">Total Logs</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="stat-avg">-</span>
+                            <span class="stat-label">Avg Mood Score</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Mood Distribution</h4>
+                        <div id="custom-chart" class="custom-chart">
+                            </div>
+                    </div>
+                    <button id="clear-data-btn" class="danger-btn">Clear All Data</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="info-section" class="app-section hidden">
+            <div class="card info-card">
+                <h2>About MindSpace Mood Tracker</h2>
+                <p class="project-purpose">
+                    <strong>MindSpace</strong> is a client-side utility application designed to help individuals monitor their emotional well-being over time. Tracking mood variations is an evidence-based practice in cognitive behavioral psychology that helps users identify environmental triggers and emotional trends.
+                </p>
+                
+                <hr class="divider">
+
+                <h3>Key Academic & Technical Features</h3>
+                <ul>
+                    <li><strong>Zero Server Footprint:</strong> Utilizes the HTML5 Web Storage API (<code>localStorage</code>) to store data completely locally, ensuring data privacy.</li>
+                    <li><strong>Dynamic DOM Manipulation:</strong> Re-renders tracking data, history states, and analytical breakdown instantly without page reloads.</li>
+                    <li><strong>Custom-Built Micro Data Analytics:</strong> Computes emotional averages and distribution trends programmatically via JavaScript arrays and renders them using purely mathematical flexbox scale mappings.</li>
+                </ul>
+
+                <h3>How to Use the App</h3>
+                <ol>
+                    <li><strong>Select an Emoji:</strong> Click on the emoji matching your current emotional state on the main dashboard.</li>
+                    <li><strong>Add Context:</strong> Type a brief note outlining what factors contributed to your mood (work, sleep, health, etc.).</li>
+                    <li><strong>Log It:</strong> Click "Log Mood". Your log is instantaneously timestamped and safely written to your browser's local sandbox.</li>
+                    <li><strong>Review & Analyze:</strong> Scroll down to view past history logs and study the distribution bar graph to observe your overall mental wellness baseline.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>MindSpace CSE BSc Prototype App © 2026</p>
+    </footer>
+    <section class="container">
+        <div class="card footer-info-card">
+            <h3>MindSpace প্রোজেক্ট পরিচিতি</h3>
+            <p><strong>MindSpace</strong> একটি সম্পূর্ণ ক্লায়েন্ট-সাইড (Client-side) মুড ট্র্যাকিং অ্যাপ্লিকেশন, যা সিএসই (CSE) বিএসসি কোর্সের ওয়েব ডেভেলপমেন্ট প্রজেক্ট হিসেবে ডিজাইন করা হয়েছে।</p>
+            
+            <div class="info-features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                    <strong>🛠️ টেকনোলজি স্ট্যাক</strong>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">কোনো এক্সটার্নাল লাইব্রেরি বা ফ্রেমওয়ার্ক ছাড়া শুধুমাত্র র-এইচটিএমএল (HTML5), সিএসএস (CSS3) এবং ভ্যানিলা জাভাস্ক্রিপ্ট (JavaScript) ব্যবহার করে এটি তৈরি।</p>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--success-color);">
+                    <strong>💾 ডেটা প্রাইভেসি</strong>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">এখানে HTML5 LocalStorage ব্যবহার করা হয়েছে, যার ফলে ইউজারের সমস্ত ডেটা তাদের নিজস্ব ব্রাউজারেই সুরক্ষিত থাকে এবং কোনো সার্ভারে আপলোড হয় না।</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #e67e22;">
+                    <strong>📊 ডাইনামিক অ্যানালিটিক্স</strong>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">জাভাস্ক্রিপ্ট অ্যালগরিদমের মাধ্যমে রিয়েল-টাইমে ইউজারের গড় মুড স্কোর (Average Score) এবং মুড ডিস্ট্রিবিউশন চার্ট ক্যালকুলেট করা হয়।</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px; background: #ebf3fc; padding: 12px; border-radius: 8px; font-size: 0.9rem;">
+                <strong>💡 ব্যবহারকারী নির্দেশিকা:</strong> প্রতিদিন আপনার মানসিক অবস্থা অনুযায়ী ইমোজি সিলেক্ট করুন, প্রয়োজনে নোট লিখুন এবং "Log Mood" বাটনে ক্লিক করুন। পূর্বের রেকর্ড মুছে ফেলতে চাইলে "Clear All Data" বাটনটি ব্যবহার করুন।
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>MindSpace CSE BSc Prototype App © 2026</p>
+    </footer>
+
+</body>
+   
+
+-    <script src="script.js"></script>
+</body>
+</html>
+  

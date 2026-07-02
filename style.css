@@ -1,0 +1,334 @@
+:root {
+    --bg-color: #f0f4f8;
+    --card-bg: #ffffff;
+    --primary-color: #4a90e2;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #e1e8ed;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    color: var(--text-muted);
+}
+
+.nav-btn.active, .nav-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Main Layout */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Logger Section */
+.logging-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.emoji-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.emoji-btn {
+    background: none;
+    border: 2px solid transparent;
+    font-size: 2.5rem;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.emoji-btn:hover {
+    transform: scale(1.15);
+    background-color: #f7f9fa;
+}
+
+.emoji-btn.selected {
+    border-color: var(--primary-color);
+    background-color: #ebf3fc;
+}
+
+.emoji-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Note Input & Button */
+.note-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: none;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+#save-mood-btn {
+    width: 100%;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#save-mood-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* History List */
+.history-list {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.history-emoji {
+    font-size: 1.8rem;
+    margin-right: 15px;
+}
+
+.history-details {
+    flex-grow: 1;
+}
+
+.history-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.history-note {
+    font-size: 0.9rem;
+    margin-top: 3px;
+    color: #555;
+    font-style: italic;
+}
+
+.delete-log {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.empty-msg {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 0;
+}
+
+/* Analytics */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Custom CSS Graphs */
+.chart-container h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.custom-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.chart-label {
+    width: 70px;
+}
+
+.chart-bar-wrapper {
+    flex-grow: 1;
+    background-color: var(--border-color);
+    height: 15px;
+    border-radius: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.chart-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%; /* Dynamic */
+    transition: width 0.5s ease;
+}
+
+.danger-btn {
+    width: 100%;
+    background: none;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.danger-btn:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Info Section Styling */
+.info-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.project-purpose {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+.info-card h3 {
+    margin: 15px 0 10px 0;
+}
+.info-card ul, .info-card ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+.info-card li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+  
